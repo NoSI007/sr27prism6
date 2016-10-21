@@ -1,0 +1,124 @@
+﻿<Window x:Class="SR27_Desktop.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:prism="http://www.codeplex.com/prism"
+        Title="Shell" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="ContentControlRegionStyle" TargetType="ContentControl">
+            <Setter Property="Foreground" Value="#FF000000" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment"  Value="Top" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" CornerRadius="4,4,0,0" BorderBrush="#FF0254B4" BorderThickness="1"  VerticalAlignment="Top">
+                                <!--<Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF6777A0" Offset="0" />
+                                        <GradientStop Color="#FF2A3358"  Offset="1" />
+                                    </LinearGradientBrush>
+                                </Border.Background>-->
+                                <TextBlock Text="{TemplateBinding Name}"
+                                           TextWrapping="Wrap"  HorizontalAlignment="Center"  Foreground="#FFD9E3CF"  FontWeight="Normal"
+                                           FontFamily="Portable User Interface"  FontSize="12" VerticalAlignment="Center" />
+                            </Border>
+                            <ContentPresenter Grid.Row="1"
+                                              Cursor="{TemplateBinding Cursor}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" MinWidth="80" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="60*" MinWidth="80"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="Jack"  Grid.Row="0"   Grid.Column="0"  Grid.ColumnSpan="3"  RenderTransformOrigin="0.5,0.5" >
+            <!--<Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform  AngleX="19" />
+                    <RotateTransform Angle="0" />
+                    <TranslateTransform  X="23"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>-->
+            <TextBlock Canvas.Top="10" Canvas.Left="15" Text="           SR27"   TextWrapping="NoWrap"  Foreground="#553322" FontSize="30"  Opacity="0.7" TextAlignment="Left"  FontWeight="Bold" >
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
+                        <RotateTransform Angle="-3" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock Canvas.Top="15" Canvas.Left="230" Text="Browser" TextWrapping="NoWrap" Foreground="#AAEE44" FontSize="30" Opacity="0.85" TextAlignment="Left" FontWeight="Normal" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
+                        <RotateTransform Angle="3" />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <ComboBox Canvas.Right="20" Canvas.Top="10" Width="120" Text="Theme" Name="appTheme" >
+            </ComboBox>
+        </Canvas>
+        <!-- Left Region -->
+      
+
+        <Border Grid.Row="1"
+                BorderBrush="#FF4355C1"
+                BorderThickness="2,2,2,2"
+                CornerRadius="4,4,4,4"
+                Margin="8,2,2,8">
+            <ContentControl x:Name="Commands"
+                            prism:RegionManager.RegionName="Commands"
+                            Style="{StaticResource ContentControlRegionStyle}"
+                            VerticalContentAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch" 
+                            >
+             
+            </ContentControl>
+        </Border>
+
+        <!-- Main Region -->
+        <!--
+                            Style="{StaticResource ContentControlRegionStyle}"-->
+        <Border Margin="2,2,8,8"
+                Grid.Column="2"
+                Grid.Row="1"
+                BorderThickness="2,2,2,2"
+                CornerRadius="4,4,4,4"
+                BorderBrush="#FF4355C1"
+                Grid.RowSpan="2">
+            <ContentControl x:Name="Results"
+                            Style="{StaticResource ContentControlRegionStyle}"
+                            prism:RegionManager.RegionName="Results"
+                            VerticalContentAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch" />
+        </Border>
+
+        <GridSplitter Grid.Row="1"
+                      Grid.Column="1"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch"
+                      Background="Transparent"
+                      Width="2" />
+    </Grid>
+</Window>

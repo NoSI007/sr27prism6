@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="SR27Module.Views.CommandsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Grid Height="auto"  Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="30*"/>
+
+            </Grid.ColumnDefinitions>
+            <!--<TextBlock Text="Search :" TextAlignment="Center"/>-->
+            <TextBox Margin="1" x:Name="kw" VerticalContentAlignment="Center" Width="auto" Text="{Binding Path=FilterStr,Mode=TwoWay}" />
+            <Button Command="{Binding Path=DoFilterCommand}" Margin="1" Content="filter" AutomationProperties.AutomationId="FilterButton" Width="auto" Height="auto"  Grid.Column="1" VerticalContentAlignment="Center">
+
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TabControl HorizontalAlignment="Stretch"  Grid.Row="1" Height="auto" >
+                <TabItem Header="List" >
+                    <StackPanel Orientation="Vertical" >
+                        <Button Content="List" HorizontalAlignment="Center" ToolTipService.ToolTip="Select one below then click List"  Margin="0,4,0,4" Command="{Binding LIST}" AutomationProperties.AutomationId="Listing"/>
+                        <ListBox Height="auto" MaxHeight="320" TextBlock.TextAlignment="Center" ItemsSource="{Binding Path=NUTR_DEF}" DisplayMemberPath="NutrDesc">
+                            
+                        </ListBox>
+
+                    </StackPanel>
+                </TabItem>
+
+
+                <TabItem Header="Search">
+                    <StackPanel >
+                        <ComboBox TextBlock.TextAlignment="Center" ItemsSource="{Binding Path=FD_GROUP}" DisplayMemberPath="FdGrp_Desc" >
+                        </ComboBox>
+                        <Separator/>
+                        <TextBlock Text="{Binding Path=FOOD_DES_HDR}" TextAlignment="Center"/>
+                        <ListBox Height="320" TextBlock.TextAlignment="Center" ItemsSource="{Binding Path=FOOD_DES}" DisplayMemberPath="Long_Desc">
+                        
+                        </ListBox>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>

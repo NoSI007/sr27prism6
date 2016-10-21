@@ -1,0 +1,6 @@
+﻿1. infra module should contain
+    events
+    infrastructure
+    and the services
+
+2. Modle module should contain ef

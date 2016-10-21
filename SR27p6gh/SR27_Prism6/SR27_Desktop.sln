@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22013.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SR27_Desktop", "SR27_Desktop\SR27_Desktop.csproj", "{6A3647F5-74F3-4B58-ACB2-7BEFC0D91956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SR27Module", "SR27Module\SR27Module.csproj", "{4ACD776A-F815-4160-BFD6-77995A40243C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A3647F5-74F3-4B58-ACB2-7BEFC0D91956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A3647F5-74F3-4B58-ACB2-7BEFC0D91956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A3647F5-74F3-4B58-ACB2-7BEFC0D91956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A3647F5-74F3-4B58-ACB2-7BEFC0D91956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACD776A-F815-4160-BFD6-77995A40243C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACD776A-F815-4160-BFD6-77995A40243C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACD776A-F815-4160-BFD6-77995A40243C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACD776A-F815-4160-BFD6-77995A40243C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

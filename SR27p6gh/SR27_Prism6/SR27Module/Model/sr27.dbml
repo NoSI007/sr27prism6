@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SR27d" Class="sr27DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SR27d.mdf;Integrated Security=True" SettingsObjectName="SR27Module.Properties.Settings" SettingsPropertyName="SR27dConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.FD_GROUP" Member="FD_GROUPs">
+    <Type Name="FD_GROUP">
+      <Column Name="FdGrp_CD" Type="System.Int16" DbType="SmallInt NOT NULL" IsReadOnly="true" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="FdGrp_Desc" Type="System.String" DbType="NVarChar(60)" IsReadOnly="true" CanBeNull="true" UpdateCheck="Always" />
+      <Association Name="FD_GROUP_FOOD_DE" Member="FOOD_DES" ThisKey="FdGrp_CD" OtherKey="FdGrp_Cd" Type="FOOD_DES" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FOOD_DES" Member="FOOD_DES">
+    <Type Name="FOOD_DES">
+      <Column Name="NDB_No" Type="System.Int32" DbType="Int NOT NULL" IsReadOnly="true" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="FdGrp_Cd" Type="System.Int16" DbType="SmallInt NOT NULL" IsReadOnly="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Long_Desc" Type="System.String" DbType="NVarChar(200)" IsReadOnly="true" CanBeNull="true" UpdateCheck="Always" />
+      <Association Name="FOOD_DE_NUT_DATA" Member="NUT_DATAs" ThisKey="NDB_No" OtherKey="NDB_No" Type="NUT_DATA" />
+      <Association Name="FD_GROUP_FOOD_DE" Member="FD_GROUP" ThisKey="FdGrp_Cd" OtherKey="FdGrp_CD" Type="FD_GROUP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NUT_DATA" Member="NUT_DATAs">
+    <Type Name="NUT_DATA">
+      <Column Name="NDB_No" Type="System.Int32" DbType="Int NOT NULL" IsReadOnly="true" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Nutr_No" Type="System.Int16" DbType="SmallInt NOT NULL" IsReadOnly="true" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Nutr_Val" Type="System.Single" DbType="Real" IsReadOnly="true" CanBeNull="true" UpdateCheck="Always" />
+      <Association Name="FOOD_DE_NUT_DATA" Member="FOOD_DES" ThisKey="NDB_No" OtherKey="NDB_No" Type="FOOD_DES" IsForeignKey="true" />
+      <Association Name="NUTR_DEF_NUT_DATA" Member="NUTR_DEF" ThisKey="Nutr_No" OtherKey="Nutr_No" Type="NUTR_DEF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NUTR_DEF" Member="NUTR_DEFs">
+    <Type Name="NUTR_DEF">
+      <Column Name="Nutr_No" Type="System.Int16" DbType="SmallInt NOT NULL" IsReadOnly="true" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Units" Type="System.String" DbType="NVarChar(7) NOT NULL" IsReadOnly="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Tagname" Type="System.String" DbType="NVarChar(20)" IsReadOnly="true" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="NutrDesc" Type="System.String" DbType="NVarChar(60) NOT NULL" IsReadOnly="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Num_Dec" Type="System.Int16" DbType="SmallInt NOT NULL" IsReadOnly="true" CanBeNull="false" UpdateCheck="Always" />
+      <Association Name="NUTR_DEF_NUT_DATA" Member="NUT_DATAs" ThisKey="Nutr_No" OtherKey="Nutr_No" Type="NUT_DATA" />
+    </Type>
+  </Table>
+</Database>

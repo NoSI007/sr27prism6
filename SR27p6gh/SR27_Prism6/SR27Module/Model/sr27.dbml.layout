@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="sr27">
+  <DataContextMoniker Name="/sr27DataContext" />
+  <nestedChildShapes>
+    <classShape Id="98ee8dbe-aba9-47a4-93b1-7ae5cc791df0" absoluteBounds="0.875, 1, 2, 1.1939925130208331">
+      <DataClassMoniker Name="/sr27DataContext/FD_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="711bbd43-8430-47d2-857f-4bad5e1bab15" absoluteBounds="0.89, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f687a2f8-cf98-457f-a71f-7d11571eb60e" absoluteBounds="0.75, 2.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/sr27DataContext/FOOD_DES" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41555378-f607-40f0-bb80-56c51dbde9a5" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.8125 : 2.19399251302083); (1.8125 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/sr27DataContext/FD_GROUP/FD_GROUP_FOOD_DE" />
+      <nodes>
+        <classShapeMoniker Id="98ee8dbe-aba9-47a4-93b1-7ae5cc791df0" />
+        <classShapeMoniker Id="f687a2f8-cf98-457f-a71f-7d11571eb60e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1d57b52f-27af-4d8b-a47a-231b089a8e7b" absoluteBounds="3.375, 3.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/sr27DataContext/NUT_DATA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81c61aad-d7da-4c6f-9862-584d1bdbe8b4" absoluteBounds="3.39, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 3.69314697265625); (3.375 : 3.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/sr27DataContext/FOOD_DES/FOOD_DE_NUT_DATA" />
+      <nodes>
+        <classShapeMoniker Id="f687a2f8-cf98-457f-a71f-7d11571eb60e" />
+        <classShapeMoniker Id="1d57b52f-27af-4d8b-a47a-231b089a8e7b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2e8b0d1c-9f40-41f6-87fd-fe4503c8eb4c" absoluteBounds="3.875, 1.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/sr27DataContext/NUTR_DEF" />
+      <nestedChildShapes>
+        <elementListCompartment Id="05c20a20-45d8-48fe-9ce3-a057f0ce365c" absoluteBounds="3.89, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.625 : 2.89589680989583); (4.625 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/sr27DataContext/NUTR_DEF/NUTR_DEF_NUT_DATA" />
+      <nodes>
+        <classShapeMoniker Id="2e8b0d1c-9f40-41f6-87fd-fe4503c8eb4c" />
+        <classShapeMoniker Id="1d57b52f-27af-4d8b-a47a-231b089a8e7b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

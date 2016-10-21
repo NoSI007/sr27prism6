@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="SR27Module.Views.ResultsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="auto" Width="auto" MinWidth="400" MinHeight="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Localres.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Path=Count}" TextAlignment="Center" FontWeight="Normal" />
+        <Expander Header="Results" Grid.Row="1"   >
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="201"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="BTHead" />
+                <ListView Grid.Row="1" ScrollViewer.PanningRatio="1"  x:Name="Lv4Nuts" SelectionMode="Single"  ItemsSource="{Binding Path=NUTR_VAL}"      >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn x:Name="Values" Width="90" Header="Values" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource AppBorder}">
+                                            <TextBlock Padding="0,0,5,0"  Style="{StaticResource RBlock}"  Text="{Binding Value}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Units" Width="64" Header="Units" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource AppBorder}">
+                                            <TextBlock  Style="{StaticResource CenterHead}" Text="{Binding Units}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn> 
+                            <GridViewColumn x:Name="Nutrient"  Header="Nutrient" Width="320" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource AppBorder}">
+                                            <TextBlock Padding="5,0,0,0"  Style="{StaticResource TBlock}" Text="{Binding Path=Nutrient}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                            <Setter Property="FrameworkElement.HorizontalAlignment" Value="Stretch"/>
+                            <Style.Triggers>
+                                <Trigger Property="Selector.IsSelected" Value="true">
+                                    <Setter Property="Control.Background" Value="Magenta"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Grid>
+        </Expander>
+
+        <Expander Header="Data Source" Grid.Row="2"   >
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DsHead" Style="{StaticResource CenterHead}"/>
+
+                <TextBlock Margin="10,0,0,0" Name="ds4food" Text=""  Grid.Row="1"/>
+                <TextBlock Margin="10,0,0,0" Name="msg4food" Text="" Grid.Row="2"/>
+                <Button Grid.Row="3"  Name="DataSources" Content=" Data sources" Width="148" Height="25" />
+            </Grid>
+        </Expander>
+    </Grid>
+</UserControl>
